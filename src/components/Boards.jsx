@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import BoardDetailModal from './BoardDetailModal';
 import BoardConfirmModal from './BoardConfirmModal';
 import BoardEditModal from './BoardEditModal';
+import { useStore } from 'zustand';
 
 const typeToKorean = (type) => {
   switch (type) {
@@ -17,7 +18,9 @@ const typeToKorean = (type) => {
 };
 
 const Boards = ({ type }) => {
-  const data = [];
+  const { tasks } = useStore();
+
+  const data = [...tasks];
   const filteredData = data.filter((item) => item.type === type);
   const [item, setItem] = useState(null);
   const [isOpen, setIsOpen] = useState(false);

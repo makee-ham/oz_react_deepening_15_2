@@ -11,10 +11,10 @@
 import { create } from 'zustand';
 import { persist, createJSONStorage } from 'zustand/middleware';
 
-const useBoardStore = create(
+export const useBoardStore = create(
   persist(
     (set) => ({
-      data: [
+      tasks: [
         {
           id: 1,
           title: '작업 목록 1',
