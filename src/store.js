@@ -60,8 +60,10 @@ export const useBoardStore = create(
       ],
       addBoard: (newData) => set((state) => ({ data: [...state.data, newData] })),
       removeBoard: (id) => set((state) => ({ data: state.data.filter((task) => task.id !== id) })),
-      updateBoard: (id, updatedBoard) =>
-        set((state) => ({ data: state.data.map((task) => (task.id === id ? { ...task, ...updatedBoard } : task)) })),
+      updateBoard: (updatedBoard) =>
+        set((state) => ({
+          data: state.data.map((task) => (task.id === updatedBoard.id ? { ...task, ...updatedBoard } : task)),
+        })),
     }),
     {
       name: 'task-storage',
