@@ -58,11 +58,11 @@ export const useBoardStore = create(
           created_at: '2023-10-02',
         },
       ],
-      addBoard: (newData) => set((state) => ({ data: [...state.data, newData] })),
-      removeBoard: (id) => set((state) => ({ data: state.data.filter((task) => task.id !== id) })),
+      addBoard: (newData) => set((state) => ({ tasks: [...state.tasks, newData] })),
+      removeBoard: (id) => set((state) => ({ tasks: state.tasks.filter((task) => task.id !== id) })),
       updateBoard: (updatedBoard) =>
         set((state) => ({
-          data: state.data.map((task) => (task.id === updatedBoard.id ? { ...task, ...updatedBoard } : task)),
+          tasks: state.tasks.map((task) => (task.id === updatedBoard.id ? { ...task, ...updatedBoard } : task)),
         })),
     }),
     {

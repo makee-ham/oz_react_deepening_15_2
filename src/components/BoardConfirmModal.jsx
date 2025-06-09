@@ -2,10 +2,10 @@
 //2. removeBoard 함수를 불러와 보드를 삭제 합니다.
 
 import React from 'react';
-import { useStore } from 'zustand';
+import { useBoardStore } from '../store';
 
 const BoardConfirmModal = ({ onClose, id }) => {
-  const { removeBoard } = useStore();
+  const { removeBoard } = useBoardStore();
 
   const handleDelete = () => {
     removeBoard(id);

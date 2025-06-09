@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import BoardDetailModal from './BoardDetailModal';
 import BoardConfirmModal from './BoardConfirmModal';
 import BoardEditModal from './BoardEditModal';
-import { useStore } from 'zustand';
+import { useBoardStore } from '../store';
 
 const typeToKorean = (type) => {
   switch (type) {
@@ -18,7 +18,7 @@ const typeToKorean = (type) => {
 };
 
 const Boards = ({ type }) => {
-  const { tasks } = useStore();
+  const { tasks } = useBoardStore();
 
   const data = [...tasks];
   const filteredData = data.filter((item) => item.type === type);
